@@ -79,6 +79,16 @@ myModule.controller('mainController', function($scope, $cordovaSQLite) {
         $scope.insert("Boris", "Bran");
     }
     
+    $scope.wipe = function(){
+
+        var query = "DELETE FROM contacts";
+        $cordovaSQLite.execute(db, query).then(function(res){
+           console.log("Deleted table");
+        },function(err){
+            console.log(err);
+        });
+    }
+
     $scope.add = function(){
         $scope.insert($scope.firstname, $scope.lastname);   
     }
@@ -89,6 +99,7 @@ myModule.controller('mainController', function($scope, $cordovaSQLite) {
 
             for (var i = 0; i < res.rows.length; i++){
                 $scope.myData.push([res.rows.item(i).firstname, res.rows.item(i).lastname]);
+                console.log(res.rows.item(i).id);
             }
         });
     }
