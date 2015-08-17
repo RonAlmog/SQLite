@@ -1,0 +1,26 @@
+<ion-view view-title="Home" style="background-color:#AAAAAA;">
+    <ion-content ng-controller="mainController" style="padding: 10px;">
+        <button class="button button-stable" ng-click="ref()">Update</button>
+        <button class="button button-stable" ng-click="add()">Add</button>
+        <button class="button button-stable" ng-click="default()">Load Defaults</button>
+        <br>
+        <input ng-model="firstname" type="TEXT" />
+        <input ng-model="lastname" type="TEXT" />
+        <br>
+        <table style="width:500px;border:1px solid black;">
+            <tr><th>First</th><th>Last</th></tr>
+            <tr ng-repeat="row in myData">
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+            </tr>        
+        </table>
+    </ion-content>
+</ion-view>
+    
+
+<!--
+<ion-tabs ng-controller="mainController" class="tabs-dark tabs-icon-top">
+    <ion-tab title="Leagues" href="#" icon="ion-home"><ion-view></ion-view></ion-tab>
+    <ion-tab title="My Teams" href="#" icon="ion-star"><ion-view></ion-view></ion-tab>
+</ion-tabs>
+-->
